@@ -3,3 +3,5 @@ build:
 	cd bin; zip hello.zip hello
 deploy:
 	AWS_PROFILE=mine sls deploy --verbose
+remove:
+	AWS_PROFILE=mine sls remove --verbose
