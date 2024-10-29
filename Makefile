@@ -1,6 +1,6 @@
 build:
-	env GOOS=linux go build -ldflags="-s -w" -o bin/hello hello/main.go
-	cd bin; zip hello.zip hello
+	env GOARCH=arm64 GOOS=linux go build -tags lambda.norpc -ldflags="-s -w" -o bin/bootstrap hello/main.go
+	cd ./bin; zip hello.zip bootstrap
 deploy:
 	AWS_PROFILE=mine sls deploy --verbose
 remove:
