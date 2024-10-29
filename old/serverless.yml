@@ -1,0 +1,16 @@
+frameworkVersion: ^3.39.0
+service: hello
+provider:
+  name: aws
+  runtime: go1.x
+package:
+  individually: true
+functions:
+  hello:
+    handler: hello
+    package:
+      artifact: bin/hello.zip
+    events:
+      - http:
+          path: hello
+          method: post
